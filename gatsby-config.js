@@ -1,10 +1,40 @@
+const path = require("path")
+const mdxFeed = require("gatsby-mdx/feed")
+
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: "Eddie Naff's blog",
+    description: "Personal website, built with Gatsby.",
+    author: "@theednaffattack",
+    siteUrl: "http://localhost:9000",
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: mdxFeed,
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `blog`,
+        path: `${__dirname}/src/pages/blog`,
+      },
+    },
+    {
+      resolve: `gatsby-mdx`,
+      options: {
+        extensions: [".mdx", ".md"],
+        defaultLayouts: {
+          default: path.resolve("./src/components/blog-post-layout.js"),
+        },
+        mdPlugins: [
+          require("remark-images"),
+          require("remark-emoji"),
+          require("remark-slug"),
+          require("remark-autolink-headings"),
+        ],
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -15,6 +45,7 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
