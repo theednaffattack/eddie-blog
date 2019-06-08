@@ -3,8 +3,9 @@ const mdxFeed = require("gatsby-mdx/feed")
 
 module.exports = {
   siteMetadata: {
-    title: "Eddie Naff's blog",
-    description: "Personal website, built with Gatsby.",
+    title: "eddie naff",
+    description:
+      "Used to be great, currently okay. Personal website, built with Gatsby.",
     author: "@theednaffattack",
     siteUrl: "http://localhost:9000",
   },

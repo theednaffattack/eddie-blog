@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 import Layout from "./layout"
 
 function BrowseBlogPosts({ pageContext }) {
-  const { groupedPosts, group, page } = pageContext
+  const { groupedPosts, group } = pageContext
   return (
     <Layout>
       {group.map(({ node }) => {
@@ -31,7 +31,7 @@ function BrowseBlogPosts({ pageContext }) {
               <Link
                 key={index}
                 to={`/blog/${currentPage}`}
-                className={currentPage === page ? "active" : null}
+                activeStyle={{ color: "crimson" }}
               >
                 {index + 1}
               </Link>{" "}

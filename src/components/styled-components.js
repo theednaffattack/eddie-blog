@@ -1,15 +1,21 @@
 // src/components/blog-post-layout.js
-import React from "react"
-import Helmet from "react-helmet"
-import { Box, Heading, Text } from "rebass"
+
+import { Box as BoxBase, Flex as FlexBase, Heading, Text } from "rebass"
 import styled from "styled-components"
-import { space, background, backgroundColor } from "styled-system"
+import { space, background, borders } from "styled-system"
 
 const StyledLi = styled.li`
   display: inline-block;
   ${space}
-  ${backgroundColor}
   ${background}
 `
 
-export { Box, Heading, StyledLi, Text }
+const Box = styled(BoxBase)`
+  ${borders}
+`
+
+const Flex = styled(FlexBase)`
+  ${borders}
+`
+
+export { Box, Flex, Heading, StyledLi, Text }

@@ -34,6 +34,7 @@ const theme = {
     lime: "2px limegreen solid",
     crimson: "2px crimson solid",
     steelblue: "2px steelblue solid",
+    purp: "2px rebeccapurple solid",
   },
   shadows: {
     small: "0 0 4px rgba(0, 0, 0, .125)",

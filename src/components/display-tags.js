@@ -1,6 +1,5 @@
 import React from "react"
-import Helmet from "react-helmet"
-import { Box, Heading, Text } from "rebass"
+import { Box } from "rebass"
 
 import { StyledLi } from "./styled-components"
 
