@@ -2,11 +2,12 @@
 import React from "react"
 import { Link } from "gatsby"
 import Layout from "./layout"
+import LayoutContainer from "./LayoutContainer"
 
 function BrowseBlogPosts({ pageContext }) {
   const { groupedPosts, group } = pageContext
   return (
-    <Layout>
+    <LayoutContainer>
       {group.map(({ node }) => {
         const { title, author, date } = node.frontmatter
         return (
@@ -39,7 +40,7 @@ function BrowseBlogPosts({ pageContext }) {
           )
         })}
       </footer>
-    </Layout>
+    </LayoutContainer>
   )
 }
 

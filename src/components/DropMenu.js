@@ -9,12 +9,13 @@ const DropBase = styled(BoxBase)`
   border-bottom: ${props => {
     return props.navbar === "isOpen" ? "1px inset" : 0
   }};
-  height: 50px;
+  height: 10px;
   background-color: "#07c";
+  height: 50px;
   /* display: none; */
 
-  /* @media (max-width: 768px) {
-    display: block;
+  /* @media (min-width: 768px) {
+    display: none;
   } */
 `
 
@@ -24,7 +25,7 @@ const DropBase = styled(BoxBase)`
 
 const Drop = posed(DropBase)({
   isOpen: {
-    applyAtStart: { display: "block" },
+    // applyAtStart: { display: "block" },
     height: "auto",
     // y: 0,
     // opacity: 1,
@@ -32,7 +33,7 @@ const Drop = posed(DropBase)({
     staggerChildren: 20,
   },
   isClosed: {
-    applyAtStart: { display: "none" },
+    // applyAtEnd: { display: "none" },
     height: 0,
     // y: -150,
     // opacity: 0,
@@ -41,8 +42,6 @@ const Drop = posed(DropBase)({
 })
 
 export const DropMenu = props => {
-  console.log("DropMenu props")
-  console.log(props)
   return (
     <Drop id="inner-drop-menu" width={1} pose={props.pose}>
       {props.children}

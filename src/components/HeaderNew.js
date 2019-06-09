@@ -110,17 +110,18 @@ export default class Header extends Component {
     // this.handleActiveToggle = this.handleActiveToggle.bind(this);
   }
   // handleNavToggle(event) {
-  //   event.preventDefault();
-  //   let newValue = "";
+  //   console.log("toggle firing")
+  //   event.preventDefault()
+  //   let newValue = ""
   //   if (this.props.navBarState === "isOpen") {
-  //     newValue = "isClosed";
+  //     newValue = "isClosed"
   //   }
   //   if (this.props.navBarState === "isClosed") {
-  //     newValue = "isOpen";
+  //     newValue = "isOpen"
   //   }
   //   this.setState(prevState => ({
-  //     navBar: newValue
-  //   }));
+  //     navBar: newValue,
+  //   }))
   // }
   handleNavLinkClick(event) {
     event.preventDefault()
@@ -188,16 +189,16 @@ export default class Header extends Component {
             </Text>
           </Flex>
           <HiddenFlex>
-            <HorizontalNavLink link="/projects" activeFn={activeFn}>
+            <HorizontalNavLink link="/#projects" activeFn={activeFn}>
               projects
             </HorizontalNavLink>
-            <HorizontalNavLink link="/experience" activeFn={activeFn}>
+            <HorizontalNavLink link="/#experience" activeFn={activeFn}>
               experience
             </HorizontalNavLink>
             <HorizontalNavLink link="/blog/1" activeFn={activeFn}>
               blog
             </HorizontalNavLink>
-            <HorizontalNavLink link="/contact" activeFn={activeFn}>
+            <HorizontalNavLink link="/#contact" activeFn={activeFn}>
               contact
             </HorizontalNavLink>
           </HiddenFlex>

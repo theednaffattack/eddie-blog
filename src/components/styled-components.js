@@ -2,20 +2,26 @@
 
 import { Box as BoxBase, Flex as FlexBase, Heading, Text } from "rebass"
 import styled from "styled-components"
-import { space, background, borders } from "styled-system"
+import { background, borders, maxWidth, space } from "styled-system"
 
-const StyledLi = styled.li`
+export const Box = styled(BoxBase)`
+  ${borders}
+`
+
+export const Flex = styled(FlexBase)`
+  ${borders}
+`
+
+export const LayoutFlex = styled(FlexBase)`
+  ${maxWidth}
+`
+
+export const StyledLi = styled.li`
   display: inline-block;
   ${space}
   ${background}
 `
 
-const Box = styled(BoxBase)`
-  ${borders}
-`
-
-const Flex = styled(FlexBase)`
-  ${borders}
-`
-
-export { Box, Flex, Heading, StyledLi, Text }
+// only `pass-through` (unaltered) components
+// are exported below
+export { Heading }

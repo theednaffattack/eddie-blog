@@ -1,12 +1,12 @@
 // src/components/blog/index.js
 import React from "react"
 import { graphql, Link } from "gatsby"
-import Layout from "../../components/layout"
+import LayoutContainer from "../../components/LayoutContainer"
 
 function BlogIndex({ data }) {
   const { edges: posts } = data.allMdx
   return (
-    <Layout>
+    <LayoutContainer>
       {posts.map(({ node }) => {
         const { title, author } = node.frontmatter
         return (
@@ -21,7 +21,7 @@ function BlogIndex({ data }) {
           </div>
         )
       })}
-    </Layout>
+    </LayoutContainer>
   )
 }
 

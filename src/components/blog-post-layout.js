@@ -9,6 +9,7 @@ import CodeComponent from "./CodeBlock"
 
 import Layout from "./layout"
 import { Tagslist } from "./tags-list"
+import LayoutContainer from "./LayoutContainer"
 
 const components = {
   pre: props => <div {...props} />,
@@ -19,7 +20,7 @@ function BlogPostLayout({ children, pageContext }) {
   const { title, author, date, tags } = pageContext.frontmatter
 
   return (
-    <Layout>
+    <LayoutContainer>
       <Helmet>
         <title>{title}</title>
       </Helmet>
@@ -34,7 +35,7 @@ function BlogPostLayout({ children, pageContext }) {
         </header>
         <MDXProvider components={components}>{children}</MDXProvider>
       </article>
-    </Layout>
+    </LayoutContainer>
   )
 }
 

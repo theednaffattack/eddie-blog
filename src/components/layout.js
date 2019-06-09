@@ -14,7 +14,7 @@ import { Text } from "rebass"
 import { GlobalStyle } from "../styles/global-styles"
 import HeaderNew from "./HeaderNew"
 import theme from "../styles/theme"
-import { Flex } from "./styled-components"
+import { Flex, LayoutFlex } from "./styled-components"
 
 const Layout = ({
   children,
@@ -51,18 +51,12 @@ const Layout = ({
           />
           {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
           <ThemeProvider theme={theme}>
-            <Flex
-              p={[0, 1, 2]}
-              pt={0}
-              // m={0}
+            <LayoutFlex
+              p={[2, 1, 2]}
+              m={[0, "auto"]}
               flexDirection="column"
               border="crimson"
-              style={{
-                margin: `0 auto`,
-                maxWidth: 960,
-                // padding: `0px 1.0875rem 1.45rem`,
-                // paddingTop: 0,
-              }}
+              maxWidth={960}
             >
               <Flex
                 as="main"
@@ -83,7 +77,7 @@ const Layout = ({
                 </Text>
                 <Text>© {new Date().getFullYear()}</Text>
               </Flex>
-            </Flex>
+            </LayoutFlex>
           </ThemeProvider>
         </>
       )

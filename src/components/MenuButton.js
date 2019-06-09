@@ -23,7 +23,7 @@ const Button = styled(ButtonBase)`
 export const MenuButton = ({ bg, handleNavToggle, isOpen }) => {
   return (
     <>
-      <Button bg={bg} isOpen={isOpen} onClick={handleNavToggle}>
+      <Button type="button" bg={bg} isOpen={isOpen} onClick={handleNavToggle}>
         <MenuIcon bg="#fff" />
       </Button>
     </>

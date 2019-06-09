@@ -14,8 +14,13 @@ const LinkBase = styled(GatsbyLink)`
   cursor: pointer;
 `
 
-const Link = posed(GatsbyLink)({
-  isOpen: { y: 0, opacity: 1, applyAtStart: { display: "block" } },
+const Link = posed(LinkBase)({
+  isOpen: {
+    y: 0,
+    opacity: 1,
+    applyAtStart: { display: "block" },
+    staggerChildren: 20,
+  },
   isClosed: { y: -10, opacity: 0, applyAtEnd: { display: "none" } },
 })
 
@@ -27,12 +32,10 @@ export const DropNavLink = ({
   navbar,
   poseProps,
 }) => {
-  console.log("VIEW POSEPROPS")
-  console.log(poseProps)
   return (
     <Link
       onClick={handleNavLinkClick}
-      pose={poseProps}
+      pose={poseProps ? poseProps : "isClosed"}
       color="white"
       to={link}
       id={link}
