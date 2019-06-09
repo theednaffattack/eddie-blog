@@ -12,6 +12,10 @@ const LinkBase = styled(GatsbyLink)`
   text-decoration: none;
   display: ${props => (props.navbar === "isOpen" ? "block" : "none")};
   cursor: pointer;
+
+  &:hover {
+    background-color: yellow;
+  }
 `
 
 const Link = posed(LinkBase)({

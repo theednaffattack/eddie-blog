@@ -1,27 +1,7 @@
 import React from "react"
-
-import { Box as BoxBase } from "rebass"
 import posed from "react-pose"
-import styled from "styled-components"
 
-const DropBase = styled(BoxBase)`
-  /* height: "50px"; */
-  border-bottom: ${props => {
-    return props.navbar === "isOpen" ? "1px inset" : 0
-  }};
-  height: 10px;
-  background-color: "#07c";
-  height: 50px;
-  /* display: none; */
-
-  /* @media (min-width: 768px) {
-    display: none;
-  } */
-`
-
-// border-bottom: 0;
-// height: 50px;
-// display: none;
+import { DropBase } from "./my-styled-components"
 
 const Drop = posed(DropBase)({
   isOpen: {

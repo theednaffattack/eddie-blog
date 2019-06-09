@@ -14,7 +14,7 @@ import { Text } from "rebass"
 import { GlobalStyle } from "../styles/global-styles"
 import HeaderNew from "./HeaderNew"
 import theme from "../styles/theme"
-import { Flex, LayoutFlex } from "./styled-components"
+import { Flex, LayoutFlex } from "./my-styled-components"
 
 const Layout = ({
   children,
@@ -52,30 +52,39 @@ const Layout = ({
           {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
           <ThemeProvider theme={theme}>
             <LayoutFlex
-              p={[2, 1, 2]}
+              p={[0]}
               m={[0, "auto"]}
               flexDirection="column"
-              border="crimson"
-              maxWidth={960}
+              alignItems="center"
+              bg="blue"
+              // border="crimson"
+              // maxWidth={960}
             >
               <Flex
                 as="main"
                 mt="70px"
                 width={1}
                 flexDirection="column"
-                border="lime"
+                // border="lime"
               >
                 {children}
               </Flex>
-              <Flex as="footer" width={1} flexDirection="column" border="purp">
-                <Text>
+              <Flex
+                as="footer"
+                width={1}
+                flexDirection="column"
+                color="white"
+                alignItems="center"
+                maxWidth={960}
+              >
+                <Text mb={2}>
                   Built with{" "}
                   <span role="img" aria-label="heart">
                     ❤️
-                  </span>
+                  </span>{" "}
                   by Eddie Naff
                 </Text>
-                <Text>© {new Date().getFullYear()}</Text>
+                <Text mb={4}>© Eddie Naff {new Date().getFullYear()}</Text>
               </Flex>
             </LayoutFlex>
           </ThemeProvider>

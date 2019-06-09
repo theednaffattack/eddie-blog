@@ -25,8 +25,15 @@ class LayoutContainer extends React.Component {
       active: activeId,
       navBar: "isClosed",
     }))
+    const whereAmI = window ? window.location.pathname : "maybe server"
 
-    navigate(activeId)
+    if (activeId.includes("#") && whereAmI === "/") {
+      console.log("page scroll")
+      console.log(this.state.active)
+    } else {
+      console.log(this.state.active)
+      navigate(activeId)
+    }
   }
 
   handleNavToggle(event) {
@@ -46,13 +53,21 @@ class LayoutContainer extends React.Component {
     }))
   }
   render() {
-    const { children } = this.props
+    // const { children } = this.props
+
+    const children = React.Children.map(this.props.children, child => {
+      return React.cloneElement(child, {
+        // someData: this.props.
+        activeLink: this.state.active,
+        // someFunction: x => x
+      })
+    })
 
     return (
       <>
         <Layout
           activeFn={this.handleActiveToggle}
-          activeLink={"/"}
+          activeLink={this.state.active}
           navSize={navSize}
           navBarState={this.state.navBar}
           handleNavToggle={this.handleNavToggle}

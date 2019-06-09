@@ -60,7 +60,7 @@ const TextDrop = styled(TextBase)`
   ${boxShadow}
   &:hover {
     background-color: ${props => {
-      return "blue"
+      return "yellow"
     }};
     // border-bottom: 1px goldenrod solid;
   }
@@ -98,176 +98,150 @@ const TextDrop = styled(TextBase)`
 //   },
 // })
 
-export default class Header extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      navBar: this.props.navBarState,
-    }
-
-    // this.handleNavToggle = this.handleNavToggle.bind(this);
-    this.handleNavLinkClick = this.handleNavLinkClick.bind(this)
-    // this.handleActiveToggle = this.handleActiveToggle.bind(this);
-  }
-  // handleNavToggle(event) {
-  //   console.log("toggle firing")
-  //   event.preventDefault()
-  //   let newValue = ""
-  //   if (this.props.navBarState === "isOpen") {
-  //     newValue = "isClosed"
-  //   }
-  //   if (this.props.navBarState === "isClosed") {
-  //     newValue = "isOpen"
-  //   }
-  //   this.setState(prevState => ({
-  //     navBar: newValue,
-  //   }))
-  // }
-  handleNavLinkClick(event) {
-    event.preventDefault()
-
-    this.setState({ navBar: "isClosed" })
-  }
-  render() {
-    let {
-      navSize,
-      activeFn,
-      navBarState,
-      handleNavToggle,
-      siteTitle,
-      theme,
-    } = this.props
-    return (
-      <FixedFlex
-        zIndex="9999"
-        flexDirection="column"
-        alignItems="center"
+const Header = ({
+  navSize,
+  activeFn,
+  navBarState,
+  handleNavToggle,
+  siteTitle,
+  theme,
+}) => {
+  // let {
+  //   navSize,
+  //   activeFn,
+  //   navBarState,
+  //   handleNavToggle,
+  //   siteTitle,
+  //   theme,
+  // } = this.props
+  return (
+    <FixedFlex
+      zIndex="9999"
+      flexDirection="column"
+      alignItems="center"
+      bg={theme.colors.blue}
+      position="fixed"
+      width={[1]}
+    >
+      <Flex
+        minHeight={navSize}
+        width={1}
         bg={theme.colors.blue}
-        position="fixed"
-        width={[1]}
+        flexDirection="row"
+        alignItems="center"
+        maxWidth={960}
+        p={3}
       >
-        <Flex
-          minHeight={navSize}
-          width={1}
+        {/* <Box width="75px"> */}
+        <MenuButton
           bg={theme.colors.blue}
-          flexDirection="row"
-          alignItems="center"
-          maxWidth={960}
-          p={3}
+          isOpen={navBarState === "isOpen" ? true : false}
+          handleNavToggle={handleNavToggle}
         >
-          {/* <Box width="75px"> */}
-          <MenuButton
-            bg={theme.colors.blue}
-            isOpen={navBarState === "isOpen" ? true : false}
-            handleNavToggle={handleNavToggle}
-          >
-            <MenuIcon />
-          </MenuButton>
+          <MenuIcon />
+        </MenuButton>
 
-          <Flex
-            flexDirection="column"
-            alignItems="center"
-            mr="auto"
-            width={[1, 1 / 5]}
+        <Flex
+          flexDirection="column"
+          alignItems="center"
+          mr="auto"
+          width={[1, 1 / 5]}
+        >
+          <Text
+            ml={["-30px", 0]}
+            color="white"
+            fontWeight="700"
+            fontSize={[4, 4, 4]}
           >
-            <Text
-              ml={["-30px", 0]}
+            <Link
               color="white"
-              fontWeight="700"
-              fontSize={[4, 4, 4]}
+              to="/"
+              // style={{
+              //   color: `white`,
+              //   textDecoration: `none`,
+              // }}
             >
-              <Link
-                color="white"
-                to="/"
-                // style={{
-                //   color: `white`,
-                //   textDecoration: `none`,
-                // }}
-              >
-                {siteTitle}
-              </Link>
-            </Text>
-          </Flex>
-          <HiddenFlex>
-            <HorizontalNavLink link="/#projects" activeFn={activeFn}>
-              projects
-            </HorizontalNavLink>
-            <HorizontalNavLink link="/#experience" activeFn={activeFn}>
-              experience
-            </HorizontalNavLink>
-            <HorizontalNavLink link="/blog/1" activeFn={activeFn}>
-              blog
-            </HorizontalNavLink>
-            <HorizontalNavLink link="/#contact" activeFn={activeFn}>
-              contact
-            </HorizontalNavLink>
-          </HiddenFlex>
+              {siteTitle}
+            </Link>
+          </Text>
         </Flex>
+        <HiddenFlex>
+          <HorizontalNavLink link="/#projects" activeFn={activeFn}>
+            projects
+          </HorizontalNavLink>
+          <HorizontalNavLink link="/#experience" activeFn={activeFn}>
+            experience
+          </HorizontalNavLink>
+          <HorizontalNavLink link="/blog/1" activeFn={activeFn}>
+            blog
+          </HorizontalNavLink>
+          <HorizontalNavLink link="/#contact" activeFn={activeFn}>
+            contact
+          </HorizontalNavLink>
+        </HiddenFlex>
+      </Flex>
 
-        <DropMenu width={1} pose={navBarState}>
-          <Box value="#projects" bg="#004d84">
-            <DropNavLink
-              link="/#projects"
-              handleNavLinkClick={activeFn}
-              // value="#projects"
-              // onClick={this.handleActiveToggle}
+      <DropMenu width={1} pose={navBarState}>
+        <Box value="#projects" bg="#004d84">
+          <DropNavLink
+            link="/#projects"
+            handleNavLinkClick={activeFn}
+            navbar={navBarState}
+            poseProps={navBarState}
+          >
+            <TextDrop
+              pl={3}
+              py={2}
+              id="/#projects"
+              color="white"
               navbar={navBarState}
-              poseProps={navBarState}
+              fontSize={[3, 4]}
             >
-              <TextDrop
-                pl={3}
-                py={2}
-                id="/#projects"
-                color="white"
-                navbar={this.props.navBarState}
-                fontSize={[3, 4]}
-              >
-                projects
-              </TextDrop>
-            </DropNavLink>
-          </Box>
-          <Box bg="#004d84">
-            <DropNavLink
-              link="/blog/1"
-              handleNavLinkClick={activeFn}
-              // value="#contact"
-              navbar={navBarState}
-              poseProps={navBarState}
+              projects
+            </TextDrop>
+          </DropNavLink>
+        </Box>
+        <Box bg="#004d84">
+          <DropNavLink
+            link="/blog/1"
+            handleNavLinkClick={activeFn}
+            navbar={navBarState}
+            poseProps={navBarState}
+          >
+            <TextDrop
+              pl={3}
+              py={2}
+              id="/blog/1"
+              color="white"
+              navBar={navBarState}
+              fontSize={[3, 4]}
             >
-              <TextDrop
-                pl={3}
-                py={2}
-                id="/blog/1"
-                color="white"
-                navBar={this.props.navBarState}
-                fontSize={[3, 4]}
-              >
-                blog
-              </TextDrop>
-            </DropNavLink>
-          </Box>
-          <Box bg="#004d84">
-            <DropNavLink
-              link="/#contact"
-              handleNavLinkClick={activeFn}
-              // value="#contact"
-              navbar={navBarState}
-              poseProps={navBarState}
+              blog
+            </TextDrop>
+          </DropNavLink>
+        </Box>
+        <Box bg="#004d84">
+          <DropNavLink
+            link="/#contact"
+            handleNavLinkClick={activeFn}
+            navbar={navBarState}
+            poseProps={navBarState}
+          >
+            <TextDrop
+              pl={3}
+              py={2}
+              id="/contact"
+              color="white"
+              navBar={navBarState}
+              fontSize={[3, 4]}
             >
-              <TextDrop
-                pl={3}
-                py={2}
-                id="/contact"
-                color="white"
-                navBar={this.props.navBarState}
-                fontSize={[3, 4]}
-              >
-                contact
-              </TextDrop>
-            </DropNavLink>
-          </Box>
-        </DropMenu>
-      </FixedFlex>
-    )
-  }
+              contact
+            </TextDrop>
+          </DropNavLink>
+        </Box>
+      </DropMenu>
+    </FixedFlex>
+  )
 }
+
+export default Header

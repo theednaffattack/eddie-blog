@@ -1,7 +1,7 @@
 import React from "react"
 import { Box } from "rebass"
 
-import { StyledLi } from "./styled-components"
+import { StyledLi } from "./my-styled-components"
 
 const DisplayTags = ({ tags }) => {
   let readyTags = []

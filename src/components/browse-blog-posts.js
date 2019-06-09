@@ -3,6 +3,7 @@ import React from "react"
 import { Link } from "gatsby"
 import Layout from "./layout"
 import LayoutContainer from "./LayoutContainer"
+import { Flex } from "./my-styled-components"
 
 function BrowseBlogPosts({ pageContext }) {
   const { groupedPosts, group } = pageContext
