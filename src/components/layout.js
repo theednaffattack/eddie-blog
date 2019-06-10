@@ -84,7 +84,7 @@ const Layout = ({
                   </span>{" "}
                   by Eddie Naff
                 </Text>
-                <Text mb={4}>© Eddie Naff {new Date().getFullYear()}</Text>
+                <Text mb={4}>© {new Date().getFullYear()} Eddie Naff</Text>
               </Flex>
             </LayoutFlex>
           </ThemeProvider>

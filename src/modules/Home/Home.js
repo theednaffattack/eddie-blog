@@ -67,17 +67,25 @@ class Main extends Component {
           bg="blue"
           pb={[0, 5, 0]}
         >
-          <Image
-            mt={[0, 3, 0]}
-            mb={4}
-            width={[1 / 3, 1 / 5, 1 / 10]}
-            alt="Eddie Naff"
-            // height="200px"
-            src={meAvatar}
-            borderRadius="50%"
-            border="2px rgba(255,255,255,0.6) solid"
-            boxShadow="2px 2px 30px  rgba(0,0,0,0.2)"
-          />
+          <Flex
+            flexDirection="column"
+            justifyContent="center"
+            p={3}
+            minHeight="200px"
+            width="200px"
+          >
+            <Image
+              mt={[1, 3, 2]}
+              mb={4}
+              width={[1]}
+              alt="Eddie Naff"
+              // height="200px"
+              src={meAvatar}
+              borderRadius="50%"
+              border="2px rgba(255,255,255,0.6) solid"
+              boxShadow="2px 2px 30px  rgba(0,0,0,0.2)"
+            />
+          </Flex>
           <Heading fontSize={[4, 4, 5]} color="white" as="h1">
             Hi. I'm Eddie
           </Heading>

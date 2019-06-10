@@ -7,7 +7,6 @@ import { MDXProvider } from "@mdx-js/react"
 
 import CodeComponent from "./CodeBlock"
 
-import Layout from "./layout"
 import { Tagslist } from "./tags-list"
 import LayoutContainer from "./LayoutContainer"
 

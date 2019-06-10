@@ -8,6 +8,22 @@
 const path = require("path")
 const { createFilePath } = require("gatsby-source-filesystem")
 
+// // This is for ES Modules that expect window to be defined
+exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+  if (stage === "build-html") {
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /react-scroll-into-view-if-needed/,
+            use: loaders.null(),
+          },
+        ],
+      },
+    })
+  }
+}
+
 // We're adding extra values to the "node"  (in this case slug)
 // so we can query it later on for all blogs and get their slugs
 exports.onCreateNode = ({ node, actions, getNode }) => {

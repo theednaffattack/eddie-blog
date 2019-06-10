@@ -20,6 +20,17 @@ import {
   zIndex,
 } from "styled-system"
 
+export const HR = styled.hr`
+  background-size: 1px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(0, 0, 0, 0.05);
+  border-width: 100%;
+  border-style: solid;
+  ${color}
+  ${space}
+`
+
 export const Box = styled(BoxBase)`
   ${borders}
 `

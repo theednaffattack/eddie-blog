@@ -1,39 +1,22 @@
-import React from "react";
-import { withFormik } from "formik";
-import * as Yup from "yup";
+import React from "react"
+import { withFormik } from "formik"
+import * as Yup from "yup"
 
-import {
-  Box,
-  Button as ButtonBase,
-  Flex as FlexBase,
-  Heading,
-  Image as ImageBase,
-  Text as TextBase
-} from "rebass";
+import { Button as ButtonBase, Text as TextBase } from "rebass"
 
-import {
-  background,
-  borders,
-  boxShadow,
-  display,
-  fontSize,
-  minHeight,
-  position,
-  space,
-  width
-} from "styled-system";
+import { borders, display, fontSize, space, width } from "styled-system"
 
-import styled from "styled-components";
+import styled from "styled-components"
 
 const encode = data => {
   return Object.keys(data)
     .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
-};
+    .join("&")
+}
 
 const Text = styled(TextBase)`
   ${space}
-`;
+`
 
 const Input = styled.input`
   ${borders}
@@ -41,7 +24,7 @@ const Input = styled.input`
   ${width}
   ${space}
   font-size: 1em;
-`;
+`
 
 const Textarea = styled.textarea`
   ${borders}
@@ -49,11 +32,11 @@ const Textarea = styled.textarea`
   ${width}
   ${space}
   font-size: 1em;
-`;
+`
 
 const Button = styled(ButtonBase)`
   ${display}
-`;
+`
 
 const ContactSchema = Yup.object().shape({
   name: Yup.string()
@@ -66,8 +49,8 @@ const ContactSchema = Yup.object().shape({
     .required("Message body is required!"),
   email: Yup.string()
     .email("Invalid email")
-    .required("Email is required!")
-});
+    .required("Email is required!"),
+})
 
 const MyForm = props => {
   const {
@@ -75,11 +58,10 @@ const MyForm = props => {
     handleChange,
     handleBlur,
     handleSubmit,
-    setStatus,
     status,
     touched,
-    values
-  } = props;
+    values,
+  } = props
   return (
     <form name="contact" method="POST" onSubmit={handleSubmit}>
       <input type="hidden" name="form-name" value="contact" />
@@ -147,8 +129,8 @@ const MyForm = props => {
         {status}
       </Text>
     </form>
-  );
-};
+  )
+}
 
 export const Form = withFormik({
   mapPropsToValues: () => ({ name: "", email: "", message: "" }),
@@ -166,19 +148,19 @@ export const Form = withFormik({
   //   },
 
   handleSubmit: (values, { resetForm, setSubmitting, setStatus }) => {
-    const bodyFormData = new FormData();
-    bodyFormData.set("name", values.name);
-    bodyFormData.set("email", values.email);
-    bodyFormData.set("message", values.message);
-    bodyFormData.set("form-name", "contact");
+    const bodyFormData = new FormData()
+    bodyFormData.set("name", values.name)
+    bodyFormData.set("email", values.email)
+    bodyFormData.set("message", values.message)
+    bodyFormData.set("form-name", "contact")
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", ...values })
+      body: encode({ "form-name": "contact", ...values }),
     })
       .then(() => resetForm())
-      .catch(error => alert(error));
+      .catch(error => alert(error))
   },
 
-  displayName: "BasicForm"
-})(MyForm);
+  displayName: "BasicForm",
+})(MyForm)

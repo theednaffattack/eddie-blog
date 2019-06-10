@@ -90,7 +90,7 @@ export const Contact = ({ activeLink }) => (
     // ref={contactRef}
   >
     <Scroll
-      active={activeLink === "contact" ? true : false}
+      active={activeLink === "/#contact" ? true : false}
       options={{ behavior: "smooth", scrollMode: "if-needed" }}
     >
       <Text mx="auto" fontSize={[4]} mb={4} width={[1 / 2]}>

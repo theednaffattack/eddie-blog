@@ -19,14 +19,15 @@ class LayoutContainer extends React.Component {
 
   handleActiveToggle(event) {
     event.preventDefault()
+    const whereAmI = window ? window.location.pathname : "maybe server"
+    console.log("whereAmI")
+    console.log(whereAmI)
     let activeId = event.target.getAttribute("id")
     console.log("id attribute: " + event.target.getAttribute("id"))
     this.setState(prevState => ({
       active: activeId,
       navBar: "isClosed",
     }))
-    const whereAmI = window ? window.location.pathname : "maybe server"
-
     if (activeId.includes("#") && whereAmI === "/") {
       console.log("page scroll")
       console.log(this.state.active)
