@@ -13,12 +13,24 @@ import {
   borders,
   boxShadow,
   color,
+  height,
   maxWidth,
   minHeight,
   position,
   space,
+  width,
   zIndex,
 } from "styled-system"
+
+export const Image = styled.img`
+${space}
+${height}
+${width}
+`
+
+export const A = styled.a`
+  text-decoration: none;
+`
 
 export const HR = styled.hr`
   background-size: 1px;

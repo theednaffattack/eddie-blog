@@ -49,7 +49,6 @@ const Layout = ({
             navSize={navSize}
             navBarState={navBarState}
           />
-          {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
           <ThemeProvider theme={theme}>
             <LayoutFlex
               p={[0]}
@@ -57,16 +56,8 @@ const Layout = ({
               flexDirection="column"
               alignItems="center"
               bg="blue"
-              // border="crimson"
-              // maxWidth={960}
             >
-              <Flex
-                as="main"
-                mt="70px"
-                width={1}
-                flexDirection="column"
-                // border="lime"
-              >
+              <Flex as="main" mt="70px" width={1} flexDirection="column">
                 {children}
               </Flex>
               <Flex
@@ -94,4 +85,4 @@ const Layout = ({
   />
 )
 
-export default Layout // withTheme(Layout)
+export default Layout

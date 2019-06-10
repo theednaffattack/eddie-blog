@@ -20,31 +20,13 @@ import { Flex960 } from "../../../components/my-styled-components"
 
 import github from "./images/github-omg.svg"
 import linkedIn from "./images/iconmonstr-linkedin-3-omg.svg"
-
-const Image = styled.img`
-${space}
-${height}
-${width}
-`
-
-const A = styled.a`
-  text-decoration: none;
-`
-
-const Flex = styled(FlexBase)`
-  ${background}
-    ${borders}
-    ${boxShadow}
-    ${position}
-    ${minHeight}
-  `
-const Text = styled(TextBase)`
-  ${space}
-`
-
-const Box = styled(BoxBase)`
-  ${borders}
-`
+import {
+  A,
+  Box,
+  Image,
+  Flex,
+  Text,
+} from "../../../components/my-styled-components"
 
 const initialState = {
   ssrDone: false,
@@ -113,7 +95,7 @@ export class Contact extends React.Component {
                 active={activeLink === "/#contact" ? true : false}
                 options={{ behavior: "smooth", scrollMode: "if-needed" }}
               >
-                <Text width={1} fontSize={[4]} mb={4}>
+                <Text px={[4, 0]} width={1} fontSize={[4]} mb={4}>
                   Contact Me
                 </Text>
               </MyScroller>
